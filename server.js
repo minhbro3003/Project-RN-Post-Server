@@ -21,14 +21,21 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(morgan("dev"));
 
 //router
-// app.get("/", (rep, res) => {
-//     res.status(200).json({
-//         success: true,
-//         message: "welcome to full stack",
-//     });
-// });
+app.get("/", (rep, res) => {
+    res.status(200).json({
+        success: true,
+        message: "welcome to full stack",
+    });
+});
 app.use("/api/auth", require("./routes/userRourtes"));
 app.use("/api/post", require('./routes/postRourtes'));
+//home
+// app.get("/", (req, res) =>{
+//     res.status(200).send({
+//         "success": true,
+//         "msg": "Node Server Running"
+//     })
+// })
 //port
 const PORT = process.env.PORT || 3001;
 
